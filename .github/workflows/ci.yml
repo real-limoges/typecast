@@ -20,12 +20,12 @@ jobs:
           curl -O https://beta.quicklisp.org/quicklisp.lisp
           sbcl --noinform --non-interactive \
             --load quicklisp.lisp \
-            --eval '(quicklisp-quickstart:install)' \
-            --eval '(ql:add-to-init-file)'
+            --eval '(quicklisp-quickstart:install)'
 
       - name: Install dependencies
         run: |
           sbcl --noinform --non-interactive \
+            --load ~/quicklisp/setup.lisp \
             --eval '(ql:quickload :yason)' \
             --eval '(ql:quickload :alexandria)'
 
